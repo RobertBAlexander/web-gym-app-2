@@ -15,6 +15,13 @@ POST	/register								Accounts.register
 POST	/authenticate							Accounts.authenticate
 GET		/logout									Accounts.logout
 
+GET		/trainer/signup							TrainerAccounts.signup
+GET		/trainer/login							TrainerAccounts.login
+POST	/trainer/register						TrainerAccounts.register
+POST	/trainer/authenticate					TrainerAccounts.authenticate
+GET		/trainer/logout							TrainerAccounts.logout
+
+
 # Ignore favicon requests
 GET     /favicon.ico                            404
 

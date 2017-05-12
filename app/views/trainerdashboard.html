@@ -1,0 +1,45 @@
+#{extends 'main.html' /}
+#{set title:'Trainer Dashboard' /}
+
+#{trainermenu id:"trainerdashboard"/}
+
+<section class="ui raised segment">
+    <table class="ui fixed table">
+        <thead>
+
+        <tr>
+
+            <th><header class="ui header">
+                ${trainer.firstname} ${trainer.lastname}'s Todo List
+            </header></th>
+            <th></th>
+
+        </tr>
+        </thead>
+        <tbody>
+        #{list items:todolist, as:'todo'}
+        <tr>
+            <td>
+
+                ${todo.title}</td>
+            <td><a href="/dashboard/${member.id}/deletetodo/${todo.id}"
+                   class="ui tiny red button">Delete</a></td>
+        </tr>
+        #{/list}
+        </tbody>
+    </table>
+</section>
+
+
+
+
+<form class="ui stacked segment form" action="/dashboard/addtodo" method="POST">
+    <div class="field">
+        <label>Title</label>
+        <input placeholder="Title" type="text" name="title">
+    </div>
+    <button class="ui blue submit button">Add Todo</button>
+</form>
+
+<!--   #{mainpanel/}
+-->

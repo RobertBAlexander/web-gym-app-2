@@ -1,21 +1,43 @@
 package models;
 
 import play.db.jpa.Model;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Robert Alexander on 12/05/2017.
  */
 @Entity
-public class Trainer extends Person {
-    public String speciality;
+public class Trainer extends Model {
+    public String firstname;
+    public String lastname;
+    public String email;
+    public String password;
 
-    public Trainer(String firstname, String lastname, String email, String password, String speciality)
+    @OneToMany(cascade = CascadeType.ALL)
+    public List<Todo> todolist = new ArrayList<Todo>();
+
+    public Trainer(String firstname, String lastname, String email, String password)
     {
-        super(firstname, lastname, email, password);
-        this.speciality = speciality;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        this.password = password;
     }
 
+    public static Trainer findByEmail(String email)
+    {
+        return find("email", email).first();
+    }
+
+    public boolean checkPassword(String password)
+    {
+        return this.password.equals(password);
+    }
 }
