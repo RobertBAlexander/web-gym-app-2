@@ -1,0 +1,25 @@
+Todo(t1):
+  title: Make tea
+
+Todo(t2):
+  title: Go for snooze
+
+Todo(t3):
+  title: Make more tea
+
+Member(m1):
+  firstname: homer
+  lastname: simpson
+  email: homer@simpson.com
+  password: secret
+  todolist:
+  - t1
+  - t2
+
+Member(m2):
+  firstname: marge
+  lastname: simpson
+  email: marge@simpson.com
+  password: secret
+  todolist:
+  - t3
