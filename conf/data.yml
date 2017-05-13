@@ -1,25 +1,66 @@
-Todo(t1):
+Assessment(a1):
   title: Make tea
+  weight: 124.0
+  chest: 45.0
+  thigh: 12.0
+  upperArm: 23.0
+  waist: 33.0
+  hips: 38.0
 
-Todo(t2):
-  title: Go for snooze
+Assessment(a2):
+  weight: 123.3
+  chest: 45.0
+  thigh: 12.0
+  upperArm: 23.3
+  waist: 31.0
+  hips: 36.0
 
-Todo(t3):
-  title: Make more tea
+Assessment(a3):
+  weight: 123.3
+  chest: 45.0
+  thigh: 12.5
+  upperArm: 23.3
+  waist: 32.0
+  hips: 38.0
 
 Member(m1):
   firstname: homer
   lastname: simpson
   email: homer@simpson.com
   password: secret
+  address: Springfield, USA
+  gender: Male
+  height: 1.8
+  weight: 123.0
   todolist:
-  - t1
-  - t2
+  - a1
 
 Member(m2):
+  firstname: bart
+  lastname: simpson
+  email: bart@simpson.com
+  password: secret
+  address: Springfield, USA
+  gender: Male
+  height: 1.2
+  weight: 55.0
+  todolist:
+  - a3
+
+  Member(m3):
+    firstname: lisa
+    lastname: simpson
+    email: lisa@simpson.com
+    password: secret
+    address: Springfield, USA
+    gender: Female
+    height: 1.1
+    weight: 48.0
+    todolist:
+    - a2
+
+Trainer(t1):
   firstname: marge
   lastname: simpson
   email: marge@simpson.com
   password: secret
-  todolist:
-  - t3

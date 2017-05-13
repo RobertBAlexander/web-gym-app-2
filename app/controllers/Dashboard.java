@@ -1,7 +1,9 @@
 package controllers;
 
-import models.Todo;
+//import models.Todo;
+import models.Assessment;
 import models.Member;
+import models.Trainer;
 import play.Logger;
 import play.mvc.Controller;
 import java.util.List;
@@ -13,9 +15,17 @@ public class Dashboard extends Controller
 	  {
 	    Logger.info("Rendering Dashboard");
 	    Member member = Accounts.getLoggedInMember();
-	    List<Todo> todolist = member.todolist;
-	    render("dashboard.html", member, todolist);
+	    List<Assessment> assessmentlist = member.assessmentlist;
+	    render("dashboard.html", member, assessmentlist);
 	  }
+
+  /*  public static void trainerIndex()
+    {
+        Logger.info("Rendering Dashboard");
+        Trainer trainer = TrainerAccounts.getLoggedInTrainer();
+        List<Assessment> assessmentlist = trainer.assessmentlist;
+        render("trainerdashboard.html", trainer, assessmentlist);
+    }
   
   public static void addTodo(String title)
   {
@@ -36,6 +46,17 @@ public class Dashboard extends Controller
     todo.delete();
     Logger.info("Deleting " + todo.title);
     redirect("/dashboard");
+  }
+  */
+
+  public static void addAssessment(double weight, double chest, double thigh, double upperArm, double waist, double hips)
+  {
+      Member member =Accounts.getLoggedInMember();
+        Assessment assessment = new Assessment(weight, chest, thigh, upperArm, waist, hips);
+        member.assessmentlist.add(assessment);
+        member.save();
+        Logger.info("Adding Assessment" + "Assessment NUMBER OR DATE GOES HERE");
+        redirect("/dashboard");
   }
   
  

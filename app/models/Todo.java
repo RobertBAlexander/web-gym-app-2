@@ -1,4 +1,4 @@
-package models;
+/*package models;
 
 import play.db.jpa.Model;
 
@@ -15,3 +15,4 @@ public class Todo extends Model {
 	}
 
 }
+*/

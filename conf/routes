@@ -8,6 +8,7 @@ GET     /dashboard                              Dashboard.index
 GET     /about                                  About.index
 POST	/dashboard/addtodo						Dashboard.addTodo
 GET 	/dashboard/{id}/deletetodo/{todoid}		Dashboard.deleteTodo
+POST    /dashboard/addassessment                Dashboard.addAssessment
 GET		/admin									admin.index
 GET		/signup									Accounts.signup
 GET		/login									Accounts.login
@@ -15,10 +16,11 @@ POST	/register								Accounts.register
 POST	/authenticate							Accounts.authenticate
 GET		/logout									Accounts.logout
 
-GET		/trainer/signup							TrainerAccounts.signup
-GET		/trainer/login							TrainerAccounts.login
-POST	/trainer/register						TrainerAccounts.register
-POST	/trainer/authenticate					TrainerAccounts.authenticate
+GET     /trainer                                TrainerAccounts.splashpage
+GET     /trainer/dashboard                      Dashboard.trainerIndex
+GET     /trainer/viewassessments                Dashboard.
+GET		/trainer/login    						TrainerAccounts.trainerLogin
+POST	/trainer/authenticate					TrainerAccounts.trainerAuthenticate
 GET		/trainer/logout							TrainerAccounts.logout
 
 

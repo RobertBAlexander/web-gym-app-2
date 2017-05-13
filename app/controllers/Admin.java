@@ -2,7 +2,9 @@ package controllers;
 
 //import java.util.ArrayList;
 import java.util.List;
-import models.Todo;
+
+import models.Assessment;
+//import models.Todo;
 
 //import models.Playlist;
 //import models.Song;
@@ -20,9 +22,9 @@ public class Admin extends Controller {
 		//Logger.info("Rendering Admin");
 		
 		//TODO- get list of all songs, and send them to the view
-		 List<Todo> todolist = Todo.findAll();
+		 List<Assessment> assessmentlist = Assessment.findAll();
 		
-		render ("admin.html", todolist);
+		render ("admin.html",assessmentlist);
 	}
 
 }

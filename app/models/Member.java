@@ -22,7 +22,8 @@ public class Member extends Model
 
 
   @OneToMany(cascade = CascadeType.ALL)
-  public List<Todo> todolist = new ArrayList<Todo>();
+  //public List<Todo> todolist = new ArrayList<Todo>();
+  public List<Assessment> assessmentlist = new ArrayList<Assessment>();
 
   public Member(String firstname, String lastname, String email, String password, String address, String gender,
                 double height, double startingWeight)

@@ -9,25 +9,20 @@ import play.mvc.Controller;
  */
 public class TrainerAccounts extends Controller
 {
-    public static void signup()
-    {
-        render("signup.html");
+
+    public static void splashpage() {
+        Logger.info("Rendering Trainer Start");
+        render ("trainerstart.html");
     }
 
-    public static void login()
+
+    public static void trainerLogin()
     {
-        render("login.html");
+        render("trainerlogin.html");
     }
 
-    public static void register(String firstname, String lastname, String email, String password)
-    {
-        Logger.info("Registering new user " + email);
-        Trainer trainer = new Trainer(firstname, lastname, email, password);
-        trainer.save();
-        redirect("/");
-    }
 
-    public static void authenticate(String email, String password)
+    public static void trainerAuthenticate(String email, String password)
     {
         Logger.info("Attempting to authenticate with " + email + ":" + password);
 
@@ -35,10 +30,12 @@ public class TrainerAccounts extends Controller
         if ((trainer != null) && (trainer.checkPassword(password) == true)) {
             Logger.info("Authentication successful");
             session.put("logged_in_Trainerid", trainer.id);
-            redirect ("/dashboard");
-        } else {
+            redirect ("/trainer/dashboard");
+        }
+
+        else {
             Logger.info("Authentication failed");
-            redirect("/login");
+            redirect("/trainer/login");
         }
     }
 
@@ -55,7 +52,7 @@ public class TrainerAccounts extends Controller
             String trainerId = session.get("logged_in_Trainerid");
             trainer = Trainer.findById(Long.parseLong(trainerId));
         } else {
-            login();
+            trainerLogin();
         }
         return trainer;
     }

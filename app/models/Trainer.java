@@ -4,8 +4,6 @@ import play.db.jpa.Model;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-
-import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +19,7 @@ public class Trainer extends Model {
     public String password;
 
     @OneToMany(cascade = CascadeType.ALL)
-    public List<Todo> todolist = new ArrayList<Todo>();
+    public List<Assessment> assessmentlist = new ArrayList<Assessment>();
 
     public Trainer(String firstname, String lastname, String email, String password)
     {
@@ -35,6 +33,7 @@ public class Trainer extends Model {
     {
         return find("email", email).first();
     }
+
 
     public boolean checkPassword(String password)
     {

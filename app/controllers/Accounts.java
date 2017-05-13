@@ -4,6 +4,7 @@ import play.Logger;
 import play.mvc.Controller;
 
 import models.Member;
+import models.Trainer;
 
 public class Accounts extends Controller
 {
@@ -32,11 +33,19 @@ public class Accounts extends Controller
       Logger.info("Attempting to authenticate with " + email + ":" + password);
 
       Member member = Member.findByEmail(email);
+      Trainer trainer = Trainer.findByEmail(email);
       if ((member != null) && (member.checkPassword(password) == true)) {
         Logger.info("Authentication successful");
         session.put("logged_in_Memberid", member.id);
         redirect ("/dashboard");
-      } else {
+      }
+      if ((trainer != null) && (trainer.checkPassword(password) == true)) {
+          Logger.info("Authentication successful");
+          session.put("logged_in_Trainerid", trainer.id);
+          redirect ("/trainer/dashboard");
+        }
+
+      else {
         Logger.info("Authentication failed");
         redirect("/login");
       }
