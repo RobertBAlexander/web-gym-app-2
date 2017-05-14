@@ -36,18 +36,18 @@ public class Dashboard extends Controller
 	    Logger.info("Adding Todo" + title);
 	    redirect("/dashboard");
   }
-  
-  public static void deleteTodo(Long id, Long todoid)
+  */
+  public static void deleteAssessment(Long id, Long assessmentid)
   {
     Member member = Member.findById(id);
-    Todo todo = Todo.findById(todoid);
-    member.todolist.remove(todo);
+    Assessment assessment = Assessment.findById(assessmentid);
+    member.assessmentlist.remove(assessment);
     member.save();
-    todo.delete();
-    Logger.info("Deleting " + todo.title);
+    assessment.delete();
+    Logger.info("Deleting " + assessment.weight);//weight is listed temporarily until date is sorted
     redirect("/dashboard");
   }
-  */
+
 
   public static void addAssessment(double weight, double chest, double thigh, double upperArm, double waist, double hips)
   {
