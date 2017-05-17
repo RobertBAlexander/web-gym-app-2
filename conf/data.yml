@@ -25,9 +25,27 @@ Assessment(a3):
   hips: 38.0
   comment: none
 
+Assessment(a4):
+  weight: 123.3
+  chest: 45.0
+  thigh: 12.5
+  upperArm: 23.3
+  waist: 32.0
+  hips: 38.0
+  comment: none
+
+Assessment(a5):
+  weight: 123.3
+  chest: 45.0
+  thigh: 12.5
+  upperArm: 23.3
+  waist: 32.0
+  hips: 38.0
+  comment: none
+
 Member(m1):
-  firstname: homer
-  lastname: simpson
+  firstname: Homer
+  lastname: Simpson
   email: homer@simpson.com
   password: secret
   address: Springfield, USA
@@ -36,10 +54,12 @@ Member(m1):
   startingWeight: 123.0
   assessmentlist:
     - a1
+    - a2
+    - a3
 
 Member(m2):
-  firstname: bart
-  lastname: simpson
+  firstname: Bart
+  lastname: Simpson
   email: bart@simpson.com
   password: secret
   address: Springfield, USA
@@ -47,11 +67,11 @@ Member(m2):
   height: 1.2
   startingWeight: 55.0
   assessmentlist:
-    - a3
+    - a4
 
 Member(m3):
-  firstname: lisa
-  lastname: simpson
+  firstname: Lisa
+  lastname: Simpson
   email: lisa@simpson.com
   password: secret
   address: Springfield, USA
@@ -59,13 +79,14 @@ Member(m3):
   height: 1.1
   startingWeight: 48.0
   assessmentlist:
-    - a2
+    - a5
 
 Trainer(t1):
-  firstname: marge
-  lastname: simpson
+  firstname: Marge
+  lastname: Simpson
   email: marge@simpson.com
   password: secret
   memberlist:
     - m1
     - m2
+    - m3

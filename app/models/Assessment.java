@@ -115,9 +115,9 @@ public class Assessment extends Model {
      * written for this assessment.
      * @param comment There is no validation on the assessment comment.
      */
-    // public void setComment(String comment) {
-    //     this.comment = comment;
-    // }
+     public void setComment(String comment) {
+         this.comment = comment;
+     }
 
 
     //********************************************************************************

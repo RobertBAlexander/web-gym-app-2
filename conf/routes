@@ -3,32 +3,34 @@
 # ~~~~
 
 # Home page
-GET     /                                       Start.index
-GET     /dashboard                              Dashboard.index
-GET     /profile                                UpdateProfile.index
-POST    /profile/updatefname                    UpdateProfile.setFName
-POST    /profile/updatelname                    UpdateProfile.setLName
-POST    /profile/updateemail                    UpdateProfile.setMemberEmail
-POST    /profile/updateaddress                  UpdateProfile.setNewAddress
-POST    /profile/updategender                   UpdateProfile.setChangeGender
-POST    /profile/updateheight                   UpdateProfile.seNewHeight
-POST    /profile/updatestartingweight           UpdateProfile.setAlterStartingWeight
-POST	/dashboard/addtodo						Dashboard.addTodo
-GET 	/dashboard/{id}/deletetassessment/{assessmentid}		Dashboard.deleteAssessment
-POST    /dashboard/addassessment                Dashboard.addAssessment
-GET		/admin									admin.index
-GET		/signup									Accounts.signup
-GET		/login									Accounts.login
-POST	/register								Accounts.register
-POST	/authenticate							Accounts.authenticate
-GET		/logout									Accounts.logout
+GET     /                                                       Start.index
+GET     /dashboard                                              Dashboard.index
+GET     /profile                                                UpdateProfile.index
+POST    /profile/updatefname                                    UpdateProfile.setFName
+POST    /profile/updatelname                                    UpdateProfile.setLName
+POST    /profile/updateemail                                    UpdateProfile.setMemberEmail
+POST    /profile/updateaddress                                  UpdateProfile.setNewAddress
+POST    /profile/updategender                                   UpdateProfile.setChangeGender
+POST    /profile/updateheight                                   UpdateProfile.seNewHeight
+POST    /profile/updatestartingweight                           UpdateProfile.setAlterStartingWeight
+POST	/dashboard/addtodo						                Dashboard.addTodo
+GET 	/dashboard/{id}/deleteassessment/{assessmentid}		    Dashboard.deleteAssessment
+POST    /dashboard/addassessment                                Dashboard.addAssessment
+GET		/admin									                admin.index
+GET		/signup									                Accounts.signup
+GET		/login									                Accounts.login
+POST	/register								                Accounts.register
+POST	/authenticate							                Accounts.authenticate
+GET		/logout									                Accounts.logout
 
-GET     /trainer                                TrainerAccounts.splashpage
-GET     /trainer/dashboard                      Dashboard.trainerIndex
-GET     /trainer/viewassessments                Dashboard.
-GET		/trainer/login    						TrainerAccounts.trainerLogin
-POST	/trainer/authenticate					TrainerAccounts.trainerAuthenticate
-GET		/trainer/logout							TrainerAccounts.logout
+GET     /trainer                                                TrainerAccounts.splashpage
+GET     /trainer/dashboard                                      Dashboard.trainerIndex
+GET     /trainer/dashboard/{trainerid}/viewmember/{memberid}                Dashboard.viewMember
+GET 	/trainer/dashboard/{trainerid}/viewmember/{memberid}/deleteassessment/{assessmentid}	Dashboard.deleteMemberAssessment
+POST    /viewmember/{memberid}/updatecomment/{assessmentid}     Dashboard.updateComment
+GET		/trainer/login    						                TrainerAccounts.trainerLogin
+POST	/trainer/authenticate					                TrainerAccounts.trainerAuthenticate
+GET		/trainer/logout							                TrainerAccounts.logout
 
 
 # Ignore favicon requests

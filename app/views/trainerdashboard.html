@@ -4,70 +4,37 @@
 #{trainermenu id:"trainerdashboard"/}
 
 <section class="ui raised segment">
-    <table class="ui fixed table">
-        <thead>
-
-        <tr>
-
-            <th><header class="ui header">
-                ${trainer.firstname} ${trainer.lastname}'s Todo List
-            </header></th>
-            <th></th>
-
-        </tr>
-        </thead>
-        <tbody>
-        #{list items:todolist, as:'todo'}
-        <tr>
-            <td>
-
-                ${todo.title}</td>
-            <td><a href="/dashboard/${trainer.id}/deletetodo/${todo.id}"
-                   class="ui tiny red button">Delete</a></td>
-        </tr>
-        #{/list}
-        </tbody>
-    </table>
+  <header class="ui header">
+                ${trainer.firstname} ${trainer.lastname}'s Members
+  </header>
 </section>
 
-
-
-
-<form class="ui stacked segment form" action="/dashboard/addtodo" method="POST">
-    <div class="field">
-        <label>Title</label>
-        <input placeholder="Title" type="text" name="title">
-    </div>
-    <button class="ui blue submit button">Add Todo</button>
-</form>
-
-
-<table class="ui center aligned raised celled table segment">
-    <thead>
-    <tr>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Remove Member</th>
-
-    </tr>
-    </thead>
-    <tbody>
-    <div class="ui raised list">
-        #{list items: memberlist, as:'member'} <!--supposed to get the stuff from EVERY member in a list order.-->
+<table class="ui fixed table">
+  <tbody>
+    <div class="ui bulleted list">
+      #{list items: memberlist, as:'member'} <!--supposed to get the stuff from EVERY member in a list order.-->
         <tr>
+          <td>
+            <div class="column">
+                <p class="ui wechat icon">
+                    <a href="/trainer/dashboard/${trainer.id}/viewmember/${member.id}"><h3><i class="ui blue wechat icon"></i>${member.firstname}
+                ${member.lastname}</h3></a></p>
+                <p>${member.assessmentlist.size()} assessments</p>
+            </div>
+          </td>
 
-
-            <td> ${member.firstname} </td>
-            <td> ${member.lastname} </td>
-
-            <td><a href="/trainer/dashboard/${trainer.id}/deletetmember/${member.id}" class="ui big grey
-               icon button">
-                <i class="icon trash"></i></a></td>
-        </tr>
-        #{/list}
+          <td>
+            <div class="column right aligned">
+              <a href="/trainer/dashboard/${trainer.id}/deletetmember/${member.id}" class="ui red
+               icon button"><i class="icon trash"></i></a>
+            </div>
+          </td>
+       #{/list}
     </div>
-    </tbody>
+  </tbody>
 </table>
+
+
 
 <!--   #{mainpanel/}
 -->

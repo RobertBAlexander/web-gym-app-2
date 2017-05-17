@@ -26,6 +26,55 @@ public class Dashboard extends Controller
         List<Member> memberlist = trainer.memberlist;
         render("trainerdashboard.html", trainer, memberlist);
     }
+
+    public static void viewMember(Long memberid)
+    {
+        Logger.info("Rendering Dashboard");
+        Trainer trainer = TrainerAccounts.getLoggedInTrainer();
+        Member member = Member.findById(memberid);
+        List<Assessment> assessmentlist = member.assessmentlist;
+
+        render("viewmember.html", trainer, member, assessmentlist);
+    }
+
+    public static void deleteMember(Long memberid)
+    {
+        Trainer trainer = TrainerAccounts.getLoggedInTrainer();
+        List<Member> memberlist = trainer.memberlist;
+        Member member = Member.findById(memberid);
+        trainer.memberlist.remove(member);
+        trainer.save();
+        member.delete();
+        Logger.info("Deleting " + memberid);//weight is listed temporarily until date is sorted
+        redirect("/trainer/dashboard ");
+    }
+
+    public static void updateComment(Long memberid, Long assessmentid, String comment)
+    {
+        Trainer trainer = TrainerAccounts.getLoggedInTrainer();
+        List<Member> memberlist = trainer.memberlist;
+        Member member = Member.findById(memberid);
+        List<Assessment> assessmentlist = member.assessmentlist;
+        Assessment setAssessment = Assessment.findById(assessmentid);
+        setAssessment.setComment(comment);
+        setAssessment.save();
+        Logger.info("Updating comment " + setAssessment.comment);//comment is listed temporarily until date is sorted
+        redirect("/trainer/dashboard/{trainerid}/viewmember/{memberid}");
+    }
+
+    public static void deleteMemberAssessment(Long memberid, Long assessmentid)
+    {
+        Trainer trainer = TrainerAccounts.getLoggedInTrainer();
+        List<Member> memberlist = trainer.memberlist;
+        Member member = Member.findById(memberid);
+        Assessment assessment = Assessment.findById(assessmentid);
+        member.assessmentlist.remove(assessment);
+        member.save();
+        assessment.delete();
+        Logger.info("Deleting ");//weight is listed temporarily until date is sorted
+        redirect("/trainer/dashboard/{trainerid}/viewmember/{memberid}");
+    }
+
   /*
   public static void addTodo(String title)
   {

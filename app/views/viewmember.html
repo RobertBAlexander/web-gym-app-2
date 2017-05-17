@@ -1,0 +1,101 @@
+#{extends 'main.html' /}
+#{set title:'Trainer Dashboard' /}
+
+#{trainermenu id:"trainerdashboard"/}
+
+<section class="ui raised segment">
+    <header class="ui four column center aligned middle aligned grid segment">
+        <div class="ui column">
+            <p class="ui user icon header">
+                <i class="ui yellow user icon"></i>${member.firstname.toUpperCase()} ${member.lastname.toUpperCase()}
+            </p>
+        </div>
+        <div class="ui column">
+            <p class="ui dashboard icon header">
+                <i class="ui ${member.isIdealBodyWeight()} dashboard icon"></i>IDEAL WEIGHT INDICATOR
+            </p>
+        </div>
+        <div class="ui column">
+            <p class="ui heartbeat icon header">
+                <i class="ui red heartbeat icon">${member.calculateBMI()}</i> BMI
+            </p>
+        </div>
+        <div class="ui column">
+            <p class="ui doctor icon header">
+                <i class="ui black doctor icon"></i>${member.determineBMICategory(member.calculateBMI())}
+            </p>
+        </div>
+    </header>
+
+</section>
+
+<section class="ui raised segment">
+    #{list items: assessmentlist, as:'assessment'} <!--supposed to get the stuff from EVERY assessment in a list order.-->
+    <div class="ui column">
+
+
+    <table class="ui center aligned raised celled table segment">
+        <thead>
+        <tr>
+
+            <th>Weight</th>
+            <th>Chest</th>
+            <th>Thigh</th>
+            <th>Upper Arm</th>
+            <th>Waist</th>
+            <th>Hips</th>
+            <th>Comment</th>
+            <th>Remove Assessment</th>
+        </tr>
+        </thead>
+        <tbody>
+        <div class="ui raised list">
+
+            <tr>
+
+
+                <td> ${assessment.weight} </td>
+                <td> ${assessment.chest} </td>
+                <td> ${assessment.thigh} </td>
+                <td> ${assessment.upperArm} </td>
+                <td> ${assessment.waist} </td>
+                <td> ${assessment.hips} </td>
+                <td> ${assessment.comment} </td>
+                <td><a href="/trainer/dashboard/${trainer.id}/viewmember/${member.id}/deleteassessment/${assessment.id}" class="ui big grey
+               icon button">
+                    <i class="icon trash"></i></a></td>
+            </tr>
+        </div>
+
+        </tbody>
+
+    </table>
+
+    <form class="ui form" action="/viewmember/${member.id}/updatecomment/${assessment.id}" method="POST">
+        <div class="two fields">
+            <div class="field">
+                <label>Comments</label>
+                <input placeholder="${assessment.comment}" type="text" name="comment">
+            </div>
+            <div class="field">
+                <hr style="height:10px; visibility:hidden;" />
+                <button class="ui blue submit button">Update</button>
+            </div>
+        </div>
+    </form>
+    <br><br>
+    </div>
+    #{/list}
+</section>
+
+
+
+
+
+
+
+
+
+
+<!--   #{mainpanel/}
+-->
