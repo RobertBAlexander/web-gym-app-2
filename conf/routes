@@ -5,7 +5,14 @@
 # Home page
 GET     /                                       Start.index
 GET     /dashboard                              Dashboard.index
-GET     /about                                  About.index
+GET     /profile                                UpdateProfile.index
+POST    /profile/updatefname                    UpdateProfile.setFName
+POST    /profile/updatelname                    UpdateProfile.setLName
+POST    /profile/updateemail                    UpdateProfile.setMemberEmail
+POST    /profile/updateaddress                  UpdateProfile.setNewAddress
+POST    /profile/updategender                   UpdateProfile.setChangeGender
+POST    /profile/updateheight                   UpdateProfile.seNewHeight
+POST    /profile/updatestartingweight           UpdateProfile.setAlterStartingWeight
 POST	/dashboard/addtodo						Dashboard.addTodo
 GET 	/dashboard/{id}/deletetassessment/{assessmentid}		Dashboard.deleteAssessment
 POST    /dashboard/addassessment                Dashboard.addAssessment

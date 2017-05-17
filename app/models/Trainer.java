@@ -19,7 +19,7 @@ public class Trainer extends Model {
     public String password;
 
     @OneToMany(cascade = CascadeType.ALL)
-    public List<Assessment> assessmentlist = new ArrayList<Assessment>();
+    public List<Member> memberlist = new ArrayList<Member>();
 
     public Trainer(String firstname, String lastname, String email, String password)
     {
@@ -38,5 +38,10 @@ public class Trainer extends Model {
     public boolean checkPassword(String password)
     {
         return this.password.equals(password);
+    }
+
+    public void addMember(Member member) {
+
+        memberlist.add(member);
     }
 }

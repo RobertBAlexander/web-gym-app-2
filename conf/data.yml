@@ -33,9 +33,9 @@ Member(m1):
   address: Springfield, USA
   gender: Male
   height: 1.8
-  weight: 123.0
-  assessment:
-  - a1
+  startingWeight: 123.0
+  assessmentlist:
+    - a1
 
 Member(m2):
   firstname: bart
@@ -45,20 +45,20 @@ Member(m2):
   address: Springfield, USA
   gender: Male
   height: 1.2
-  weight: 55.0
-  assessment:
-  - a3
+  startingWeight: 55.0
+  assessmentlist:
+    - a3
 
-  Member(m3):
-    firstname: lisa
-    lastname: simpson
-    email: lisa@simpson.com
-    password: secret
-    address: Springfield, USA
-    gender: Female
-    height: 1.1
-    weight: 48.0
-    assessment:
+Member(m3):
+  firstname: lisa
+  lastname: simpson
+  email: lisa@simpson.com
+  password: secret
+  address: Springfield, USA
+  gender: Female
+  height: 1.1
+  startingWeight: 48.0
+  assessmentlist:
     - a2
 
 Trainer(t1):
@@ -66,3 +66,6 @@ Trainer(t1):
   lastname: simpson
   email: marge@simpson.com
   password: secret
+  memberlist:
+    - m1
+    - m2

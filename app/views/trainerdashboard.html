@@ -41,5 +41,33 @@
     <button class="ui blue submit button">Add Todo</button>
 </form>
 
+
+<table class="ui center aligned raised celled table segment">
+    <thead>
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Remove Member</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <div class="ui raised list">
+        #{list items: memberlist, as:'member'} <!--supposed to get the stuff from EVERY member in a list order.-->
+        <tr>
+
+
+            <td> ${member.firstname} </td>
+            <td> ${member.lastname} </td>
+
+            <td><a href="/trainer/dashboard/${trainer.id}/deletetmember/${member.id}" class="ui big grey
+               icon button">
+                <i class="icon trash"></i></a></td>
+        </tr>
+        #{/list}
+    </div>
+    </tbody>
+</table>
+
 <!--   #{mainpanel/}
 -->

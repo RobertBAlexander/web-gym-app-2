@@ -19,14 +19,14 @@ public class Dashboard extends Controller
 	    render("dashboard.html", member, assessmentlist);
 	  }
 
-  /*  public static void trainerIndex()
+    public static void trainerIndex()
     {
         Logger.info("Rendering Dashboard");
         Trainer trainer = TrainerAccounts.getLoggedInTrainer();
-        List<Assessment> assessmentlist = trainer.assessmentlist;
-        render("trainerdashboard.html", trainer, assessmentlist);
+        List<Member> memberlist = trainer.memberlist;
+        render("trainerdashboard.html", trainer, memberlist);
     }
-  
+  /*
   public static void addTodo(String title)
   {
 	  Member member = Accounts.getLoggedInMember();
