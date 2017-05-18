@@ -1,3 +1,7 @@
+/**
+ * Redundant class that may not be removed due to issues with backup files and deployment conflict.
+ */
+
 /*package models;
 
 import play.db.jpa.Model;
