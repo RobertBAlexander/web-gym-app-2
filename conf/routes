@@ -16,7 +16,7 @@ POST    /profile/updatestartingweight                           UpdateProfile.se
 POST	/dashboard/addtodo						                Dashboard.addTodo
 GET 	/dashboard/{memberid}/deleteassessment/{assessmentid}		    Dashboard.deleteAssessment
 POST    /dashboard/addassessment                                Dashboard.addAssessment
-GET		/admin									                admin.index
+GET     /about                                                  About.index
 GET		/signup									                Accounts.signup
 GET		/login									                Accounts.login
 POST	/register								                Accounts.register

@@ -32,7 +32,7 @@ public class Assessment extends Model {
         this.upperArm = upperArm;
         this.waist = waist;
         this.hips = hips;
-        this.comment = "";
+        this.comment = "none";
         //this.trainer = trainer;
     }
 

@@ -121,14 +121,15 @@ public class Member extends Model {
     {
       return "angry_pika.jpg";
     }
-    if (currentCompare < previousCompare)
+    else
+      //if (currentCompare < previousCompare)
     {
       return "happyhealth_pika.png";
     }
-    else
-    {
-      return "nochange.jpg";
-    }
+   // else
+   // {
+   //   return "nochange.jpg";
+   // }
 
   }
 
