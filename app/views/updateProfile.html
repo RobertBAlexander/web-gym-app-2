@@ -66,12 +66,18 @@
       <form class="ui segment form" action="/profile/updategender" method="POST">
         <div class="two fields">
           <div class="field">
-            <label>Gender</label>
-           <input placeholder="${member.gender}" type="text" name="gender">
+            <label>Gender </label><div class="field">
+            <select name="gender">
+              <option name="gender" value="unspecified"> Unspecified</option><br>
+              <option name="gender" value="male">Male</option><br>
+              <option name="gender" value="female">Female</option><br>
+            </select>
+
+          </div>
          </div>
           <div class="field">
             <hr style="height:10px; visibility:hidden;" />
-            <button class="ui blue submit button">Change Gender</button>
+            <button class="ui blue submit button">Change Gender from '${member.gender}'</button>
           </div>
         </div>
       </form>
@@ -79,8 +85,8 @@
       <form class="ui segment form" action="/profile/updateheight" method="POST">
         <div class="two fields">
           <div class="field">
-            <label>Address</label>
-            <input placeholder="${member.height} meters" type="text" name="height">
+            <label>Height</label>
+            <input placeholder="${member.height} meters" type="number" step=".01" min="1" max="3" name="height">
           </div>
           <div class="field">
             <hr style="height:10px; visibility:hidden;" />
@@ -93,7 +99,7 @@
         <div class="two fields">
           <div class="field">
             <label>Starting Weight*</label>
-            <input placeholder="${member.startingWeight} kg" type="text" name="startingWeight">
+            <input placeholder="${member.startingWeight} kg" type="number" step=".01" min="35" max="250" name="startingWeight">
           </div>
           <div class="field">
             <hr style="height:10px; visibility:hidden;" />

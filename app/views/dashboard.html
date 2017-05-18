@@ -73,6 +73,7 @@
       <th>Waist</th>
       <th>Hips</th>
       <th>Comment</th>
+      <th>Trend</th>
       <th>Remove Assessment</th>
     </tr>
     </thead>
@@ -89,6 +90,7 @@
         <td> ${assessment.waist} </td>
         <td> ${assessment.hips} </td>
         <td> ${assessment.comment} </td>
+        <td> <img class="ui image" src="/public/images/${member.trend(assessment)}"></td>
         <td><a href="/dashboard/${member.id}/deletetassessment/${assessment.id}" class="ui big grey
                icon button">
           <i class="icon trash"></i></a></td>

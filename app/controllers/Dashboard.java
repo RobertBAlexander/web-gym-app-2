@@ -15,7 +15,7 @@ public class Dashboard extends Controller
 	  {
 	    Logger.info("Rendering Dashboard");
 	    Member member = Accounts.getLoggedInMember();
-	    List<Assessment> assessmentlist = member.assessmentlist;
+	    List<Assessment> assessmentlist = new ArrayList<>(member.assessmentlist);
 	    render("dashboard.html", member, assessmentlist);
 	  }
 
@@ -46,7 +46,7 @@ public class Dashboard extends Controller
         trainer.save();
         member.delete();
         Logger.info("Deleting " + memberid);//weight is listed temporarily until date is sorted
-        redirect("/trainer/dashboard ");
+        redirect("/trainer/dashboard");
     }
 
     public static void updateComment(Long memberid, Long assessmentid, String comment)
@@ -59,7 +59,8 @@ public class Dashboard extends Controller
         setAssessment.setComment(comment);
         setAssessment.save();
         Logger.info("Updating comment " + setAssessment.comment);//comment is listed temporarily until date is sorted
-        redirect("/trainer/dashboard/{trainerid}/viewmember/{memberid}");
+        //redirect("/trainer/dashboard/viewmember/${memberid}/updatecomment/${assessmentid}");
+        render("viewmember.html", trainer, member, assessmentlist, comment);
     }
 
     public static void deleteMemberAssessment(Long memberid, Long assessmentid)
@@ -72,8 +73,10 @@ public class Dashboard extends Controller
         member.save();
         assessment.delete();
         Logger.info("Deleting ");//weight is listed temporarily until date is sorted
-        redirect("/trainer/dashboard/{trainerid}/viewmember/{memberid}");
+        //redirect("/trainer/dashboard/viewmember/{memberid}/deleteassessment/{assessmentid}");
+        render("viewmember.html", trainer, member, assessment);
     }
+
 
   /*
   public static void addTodo(String title)

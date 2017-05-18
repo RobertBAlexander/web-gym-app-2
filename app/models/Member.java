@@ -8,6 +8,7 @@ import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.lang.Math;
 
 @Entity
 public class Member extends Model {
@@ -23,7 +24,7 @@ public class Member extends Model {
 
   @OneToMany(cascade = CascadeType.ALL)
   //public List<Todo> todolist = new ArrayList<Todo>();
-  public List<Assessment> assessmentlist = new ArrayList();
+  public List<Assessment> assessmentlist = new ArrayList<>();
 
   public Member(String firstname, String lastname, String email, String password, String address, String gender,
                 double height, double startingWeight) {
@@ -76,6 +77,29 @@ public class Member extends Model {
   }
 
 
+  public String trend(Assessment assessment)
+  {
+
+    long assessmentId = assessment.getId();
+    long preId = assessmentId - 1;
+    //double previousAssessment = assessmentlist.get((int) Math.round(preId)).getWeight();
+    double previousAssessment = 90;
+
+    if (assessment.getWeight() > previousAssessment)
+    {
+      return "sadfat_pika.png";
+    }
+    if (assessment.getWeight() < previousAssessment)
+    {
+      return "happyhealth_pika.png";
+    }
+    else
+    {
+      return "nochange.jpg";
+    }
+
+  }
+
 
   //********************************************************************************
   //  SETTERS
@@ -95,7 +119,7 @@ public class Member extends Model {
     }
     else
     {
-      this.email = "Invalid Email";
+      this.email = this.email;
     }
   }
 
@@ -136,7 +160,7 @@ public class Member extends Model {
    *               to "Unspecified".
    */
   public void setGender(String gender) {
-    if ((gender.toUpperCase().equals("M")) || (gender.toUpperCase().equals("F"))) {
+    if ((gender.toUpperCase().equals("MALE")) || (gender.toUpperCase().equals("FEMALE"))) {
       this.gender = gender.toUpperCase();
     }
     else
@@ -246,8 +270,9 @@ public class Member extends Model {
         return toTwoDecimalPlaces(memberWeight / (getHeight() * getHeight()));
       }
 
-
   }
+
+
 
   /**
    * This method determines the BMI category that the member belongs to.

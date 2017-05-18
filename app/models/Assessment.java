@@ -22,8 +22,8 @@ public class Assessment extends Model {
     public String comment;
     //public Trainer trainer;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    public List<Assessment> assessmentlist = new ArrayList<Assessment>();
+    //@OneToMany(cascade = CascadeType.ALL)
+    //public List<Assessment> assessmentlist = new ArrayList<Assessment>();
 
     public Assessment(double weight, double chest, double thigh, double upperArm, double waist, double hips) {
         this.weight = weight;
@@ -34,21 +34,6 @@ public class Assessment extends Model {
         this.hips = hips;
         this.comment = "";
         //this.trainer = trainer;
-    }
-
-    public static double calculateBMI (Member member, Assessment assessment)
-    {
-        if (member.getHeight() <= 0)
-            return 0;
-        else
-        {
-            return toTwoDecimalPlaces(assessment.getWeight() / (member.getHeight() * member.getHeight()));
-        }
-    }
-
-    private static double toTwoDecimalPlaces ( double num)
-    {
-        return (int)(num * 100) / 100.0;
     }
 
 

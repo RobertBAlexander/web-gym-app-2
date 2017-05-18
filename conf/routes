@@ -11,10 +11,10 @@ POST    /profile/updatelname                                    UpdateProfile.se
 POST    /profile/updateemail                                    UpdateProfile.setMemberEmail
 POST    /profile/updateaddress                                  UpdateProfile.setNewAddress
 POST    /profile/updategender                                   UpdateProfile.setChangeGender
-POST    /profile/updateheight                                   UpdateProfile.seNewHeight
+POST    /profile/updateheight                                   UpdateProfile.setNewHeight
 POST    /profile/updatestartingweight                           UpdateProfile.setAlterStartingWeight
 POST	/dashboard/addtodo						                Dashboard.addTodo
-GET 	/dashboard/{id}/deleteassessment/{assessmentid}		    Dashboard.deleteAssessment
+GET 	/dashboard/{memberid}/deleteassessment/{assessmentid}		    Dashboard.deleteAssessment
 POST    /dashboard/addassessment                                Dashboard.addAssessment
 GET		/admin									                admin.index
 GET		/signup									                Accounts.signup
@@ -25,9 +25,10 @@ GET		/logout									                Accounts.logout
 
 GET     /trainer                                                TrainerAccounts.splashpage
 GET     /trainer/dashboard                                      Dashboard.trainerIndex
-GET     /trainer/dashboard/{trainerid}/viewmember/{memberid}                Dashboard.viewMember
-GET 	/trainer/dashboard/{trainerid}/viewmember/{memberid}/deleteassessment/{assessmentid}	Dashboard.deleteMemberAssessment
-POST    /viewmember/{memberid}/updatecomment/{assessmentid}     Dashboard.updateComment
+GET     /trainer/dashboard/viewmember/{memberid}                Dashboard.viewMember
+GET 	/trainer/dashboard/viewmember/{memberid}/deleteassessment/{assessmentid}	Dashboard.deleteMemberAssessment
+POST    /trainer/dashboard/viewmember/{memberid}/updatecomment/{assessmentid}     Dashboard.updateComment
+GET     /trainer/dashboard/{trainerid}/deletetmember/{memberid}  Dashboard.deleteMember
 GET		/trainer/login    						                TrainerAccounts.trainerLogin
 POST	/trainer/authenticate					                TrainerAccounts.trainerAuthenticate
 GET		/trainer/logout							                TrainerAccounts.logout
