@@ -10,6 +10,9 @@ import models.*;
  */
 public class UpdateProfile extends Controller
 {
+    /**
+     * This method renders the updateProfile.htmll page.
+     */
     public static void index()
     {
         Logger.info("Rendering Update Profile");
