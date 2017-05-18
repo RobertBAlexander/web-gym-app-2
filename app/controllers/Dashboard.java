@@ -22,7 +22,7 @@ public class Dashboard extends Controller
 	  {
 	    Logger.info("Rendering Dashboard");
 	    Member member = Accounts.getLoggedInMember();
-	    List<Assessment> assessmentlist = new ArrayList<>(member.assessmentlist);
+	    List<Assessment> assessmentlist = new ArrayList<Assessment>(member.assessmentlist);
 	    render("dashboard.html", member, assessmentlist);
 	  }
 
