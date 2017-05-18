@@ -86,7 +86,3 @@ Trainer(t1):
   lastname: Simpson
   email: marge@simpson.com
   password: secret
-  memberlist:
-    - m1
-    - m2
-    - m3

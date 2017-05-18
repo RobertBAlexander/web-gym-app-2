@@ -23,7 +23,7 @@ public class Dashboard extends Controller
     {
         Logger.info("Rendering Dashboard");
         Trainer trainer = TrainerAccounts.getLoggedInTrainer();
-        List<Member> memberlist = trainer.memberlist;
+        List<Member> memberlist = Member.findAll();
         render("trainerdashboard.html", trainer, memberlist);
     }
 
@@ -68,13 +68,14 @@ public class Dashboard extends Controller
         Trainer trainer = TrainerAccounts.getLoggedInTrainer();
         List<Member> memberlist = trainer.memberlist;
         Member member = Member.findById(memberid);
+        List<Assessment> assessmentlist = member.assessmentlist;
         Assessment assessment = Assessment.findById(assessmentid);
         member.assessmentlist.remove(assessment);
         member.save();
         assessment.delete();
         Logger.info("Deleting ");//weight is listed temporarily until date is sorted
         //redirect("/trainer/dashboard/viewmember/{memberid}/deleteassessment/{assessmentid}");
-        render("viewmember.html", trainer, member, assessment);
+        render("viewmember.html", trainer, member, assessmentlist);
     }
 
 
@@ -89,24 +90,27 @@ public class Dashboard extends Controller
 	    redirect("/dashboard");
   }
   */
-  public static void deleteAssessment(Long id, Long assessmentid)
+  public static void deleteAssessment(Long memberid, Long assessmentid)
   {
-    Member member = Member.findById(id);
+    Member member = Member.findById(memberid);
+    List<Assessment> assessmentlist = member.assessmentlist;
     Assessment assessment = Assessment.findById(assessmentid);
     member.assessmentlist.remove(assessment);
     member.save();
     assessment.delete();
-    Logger.info("Deleting " + assessment.weight);//weight is listed temporarily until date is sorted
-    redirect("/dashboard");
+    Logger.info("Deleting ");//weight is listed temporarily until date is sorted
+      render("dashboard.html", member, assessmentlist);
   }
 
 
   public static void addAssessment(double weight, double chest, double thigh, double upperArm, double waist, double hips)
   {
       Member member =Accounts.getLoggedInMember();
+      List<Assessment> assessmentlist = member.assessmentlist;
         Assessment assessment = new Assessment(weight, chest, thigh, upperArm, waist, hips);
         member.assessmentlist.add(assessment);
         member.save();
+        assessment.save();
         Logger.info("Adding Assessment" + "Assessment NUMBER OR DATE GOES HERE");
         redirect("/dashboard");
   }

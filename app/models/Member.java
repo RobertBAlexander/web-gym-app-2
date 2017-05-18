@@ -51,18 +51,18 @@ public class Member extends Model {
    * This method adds an assessment to member. The current date, and the details of an assessment should
    * be passed in.
    *
-   * @param assessment The assessment should contain current weight, chest, thigh, upperArm, waist, hips,
+  // * @param assessment The assessment should contain current weight, chest, thigh, upperArm, waist, hips,
    *                   a comment by the trainer, and the trainer who performed the assessment.
    */
-  public void addAssessment(Assessment assessment) {
+  //public void addAssessment(Assessment assessment) {
     //TODO need to do code for getting the current date, and also need to figure out
     //how I'm referring to assessments so that I can call them here.
     //assessments.put(currentDate, assessmentName)
     //DateFormat dateFormat = new SimpleDateFormat("yyyy/mm/dd HH:mm:ss");
     //Date currentDate = new Date();
     //date = dateFormat.format(currentDate);
-    assessmentlist.add(assessment);
-  }
+  //  assessmentlist.add(assessment);
+ // }
 
 
   public Assessment latestAssessment()
@@ -80,16 +80,48 @@ public class Member extends Model {
   public String trend(Assessment assessment)
   {
 
-    long assessmentId = assessment.getId();
-    long preId = assessmentId - 1;
-    //double previousAssessment = assessmentlist.get((int) Math.round(preId)).getWeight();
-    double previousAssessment = 90;
-
-    if (assessment.getWeight() > previousAssessment)
-    {
-      return "sadfat_pika.png";
+    double previousWeight;
+    int assessmentIndex = assessmentlist.indexOf(assessment);
+    //int preIndex = assessmentIndex - 1;
+    double previousAssessment = 0;
+    if (assessmentIndex != 0) {
+      previousAssessment = assessmentlist.get(assessmentIndex - 1).getWeight();
     }
-    if (assessment.getWeight() < previousAssessment)
+    else {
+      previousAssessment = getWeight();
+    }
+    //double previousAssessment = 250;
+    //assessmentlist.
+
+
+    double idealBMI = 22;
+    double valueBMI = toTwoDecimalPlaces(previousAssessment / (getHeight() * getHeight()));
+    double currentCompare;
+    double previousCompare;
+
+    /*if (assessmentIndex > 0)
+    {
+      previousWeight = previousAssessment;
+    }
+    else if (assessmentIndex == 0)
+    {
+      previousWeight = getWeight();
+    }
+    else
+    {
+      previousWeight = 200;
+    }
+*/
+
+    previousCompare = Math.abs(valueBMI -idealBMI);
+
+    currentCompare = Math.abs((assessment.getWeight() / (getHeight() * getHeight())) -idealBMI);
+
+    if (currentCompare > previousCompare)
+    {
+      return "angry_pika.jpg";
+    }
+    if (currentCompare < previousCompare)
     {
       return "happyhealth_pika.png";
     }

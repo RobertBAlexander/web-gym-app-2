@@ -6,6 +6,8 @@ import play.mvc.Controller;
 import models.Member;
 import models.Trainer;
 
+import java.util.List;
+
 public class Accounts extends Controller
 {
 	public static void signup()
@@ -21,8 +23,8 @@ public class Accounts extends Controller
     public static void register(String firstname, String lastname, String email, String password, String address, String gender,
                                 double height, double startingWeight)
     {
-     //   if (firstname != null)
       Logger.info("Registering new user " + email);
+      //List<Member> memberlist = trainer.memberlist;
       Member member = new Member(firstname, lastname, email, password, address, gender,
         height, startingWeight);
       member.save();
