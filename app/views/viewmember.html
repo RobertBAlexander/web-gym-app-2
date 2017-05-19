@@ -26,18 +26,15 @@
             </p>
         </div>
     </header>
-
 </section>
 
 <section class="ui raised segment">
     #{list items: assessmentlist, as:'assessment'} <!--supposed to get the stuff from EVERY assessment in a list order.-->
     <div class="ui column">
-
-
     <table class="ui center aligned raised celled table segment">
+
         <thead>
         <tr>
-
             <th>Weight</th>
             <th>Chest</th>
             <th>Thigh</th>
@@ -49,12 +46,10 @@
             <th>Remove Assessment</th>
         </tr>
         </thead>
+
         <tbody>
         <div class="ui raised list">
-
             <tr>
-
-
                 <td> ${assessment.weight} </td>
                 <td> ${assessment.chest} </td>
                 <td> ${assessment.thigh} </td>
@@ -68,9 +63,7 @@
                     <i class="icon trash"></i></a></td>
             </tr>
         </div>
-
         </tbody>
-
     </table>
 
     <form class="ui form" action="/trainer/dashboard/viewmember/${member.id}/updatecomment/${assessment.id}" method="POST">

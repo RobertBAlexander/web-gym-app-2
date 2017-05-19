@@ -10,6 +10,9 @@ import java.util.Date;
 import java.util.List;
 import java.lang.Math;
 
+/**
+ * Created by Robert Alexander on 16/05/2017.
+ */
 @Entity
 public class Member extends Model {
   public String firstname;
@@ -25,6 +28,17 @@ public class Member extends Model {
   @OneToMany(cascade = CascadeType.ALL)
   public List<Assessment> assessmentlist = new ArrayList<Assessment>();
 
+  /**
+   * This method creates a new member
+   * @param firstname of new member
+   * @param lastname of new member
+   * @param email of new member
+   * @param password of new member
+   * @param address of new member
+   * @param gender of new member
+   * @param height of new member
+   * @param startingWeight of new member
+   */
   public Member(String firstname, String lastname, String email, String password, String address, String gender,
                 double height, double startingWeight) {
     this.firstname = firstname;
@@ -37,33 +51,28 @@ public class Member extends Model {
     this.startingWeight = startingWeight;
   }
 
+  /**
+   * find member by e-mail
+   * @param email to search by
+   * @return
+   */
   public static Member findByEmail(String email) {
     return find("email", email).first();
   }
 
+  /**
+   * check the password is correct
+   * @param password the password to check against
+   * @return
+   */
   public boolean checkPassword(String password) {
     return this.password.equals(password);
   }
 
-
   /**
-   * This method adds an assessment to member. The current date, and the details of an assessment should
-   * be passed in.
-   *
-  // * @param assessment The assessment should contain current weight, chest, thigh, upperArm, waist, hips,
-   *                   a comment by the trainer, and the trainer who performed the assessment.
+   * The most recent assessment created in this member's array list of assessments
+   * @return
    */
-  //public void addAssessment(Assessment assessment) {
-    //TODO need to do code for getting the current date, and also need to figure out
-    //how I'm referring to assessments so that I can call them here.
-    //assessments.put(currentDate, assessmentName)
-    //DateFormat dateFormat = new SimpleDateFormat("yyyy/mm/dd HH:mm:ss");
-    //Date currentDate = new Date();
-    //date = dateFormat.format(currentDate);
-  //  assessmentlist.add(assessment);
- // }
-
-
   public Assessment latestAssessment()
   {
     if (assessmentlist.size() > 0) {
@@ -75,47 +84,33 @@ public class Member extends Model {
     }
   }
 
-
+  /**
+   * method to return what trend this assessment goes in versus the previous assessment. It checks which of the two
+   * assessments is closer to the ideal BMI of 22. If the current one is closer, it is a good trend, if the previous
+   * assessment is closer or equal it is a bad trend.
+   * @param assessment the currnet (not previous) assessment that you are checking
+   * @return
+   */
   public String trend(Assessment assessment)
   {
-
-    double previousWeight;
     int assessmentIndex = assessmentlist.indexOf(assessment);
-    //int preIndex = assessmentIndex - 1;
-    double previousAssessment = 0;
+    double previousAssessment;
     if (assessmentIndex != 0) {
       previousAssessment = assessmentlist.get(assessmentIndex - 1).getWeight();
     }
     else {
       previousAssessment = getWeight();
     }
-    //double previousAssessment = 250;
-    //assessmentlist.
-
-
     double idealBMI = 22;
     double valueBMI = toTwoDecimalPlaces(previousAssessment / (getHeight() * getHeight()));
     double currentCompare;
     double previousCompare;
 
-    /*if (assessmentIndex > 0)
-    {
-      previousWeight = previousAssessment;
-    }
-    else if (assessmentIndex == 0)
-    {
-      previousWeight = getWeight();
-    }
-    else
-    {
-      previousWeight = 200;
-    }
-*/
-
     previousCompare = Math.abs(valueBMI -idealBMI);
-
     currentCompare = Math.abs((assessment.getWeight() / (getHeight() * getHeight())) -idealBMI);
 
+    //below full code should work to allow the nochange icon to appear when the two assessments are exactly even
+    //however this has not worked, and I have had to remvoe the no change icon due ot lack of funtionality
     if (currentCompare > previousCompare)
     {
       return "angry_pika.jpg";
@@ -129,9 +124,7 @@ public class Member extends Model {
    // {
    //   return "nochange.jpg";
    // }
-
   }
-
 
   //********************************************************************************
   //  SETTERS
@@ -201,11 +194,19 @@ public class Member extends Model {
     }
   }
 
+  /**
+   * method to change member height
+   * @param height to change member height to
+   */
   public void setHeight(double height)
   {
     this.height = height;
   }
 
+  /**
+   * method to change member starting weight
+   * @param startingWeight to chagne member starting weight to
+   */
   public void setStartingWeight(double startingWeight)
   {
     this.startingWeight = startingWeight;
@@ -280,6 +281,13 @@ public class Member extends Model {
   //  ANALYTICS
   //********************************************************************************
 
+  /**
+   * This method calcuates the BMI value for the member.
+   *
+   * The formula used for BMI is weight divided by the square of the height.
+   *
+   * @return the BMI value for the member. The number returned is reduced to two decimal places.
+   */
   public double calculateBMI ()
   {
     Assessment assessment = latestAssessment();
@@ -287,13 +295,10 @@ public class Member extends Model {
     if (assessmentlist.size() > 0) {
       memberWeight = assessment.getWeight();
     }
-
     else
     {
       memberWeight = startingWeight;
     }
-
-
       if (getHeight() <= 0) {
         return 0;
       }
@@ -301,7 +306,6 @@ public class Member extends Model {
         {
         return toTwoDecimalPlaces(memberWeight / (getHeight() * getHeight()));
       }
-
   }
 
 
@@ -356,7 +360,11 @@ public class Member extends Model {
     return toTwoDecimalPlaces(convertedHeight);
   }
 
-
+  /**
+   * This method returns the member weight converted from kg to stone.
+   *
+   * @return member weight converted from kg to stone.
+   */
   public static double convertWeightKGtoPounds(Assessment assessment)
   {
     double convertedWeight = (assessment.getWeight() * 2.2);
@@ -376,11 +384,8 @@ public class Member extends Model {
     Assessment assessment = latestAssessment();
     double fiveFeet = 60.0;
     double idealBodyWeight;
-
     double inches = convertHeightMetersToInches();
-
     double memberWeight;
-
     if (assessmentlist.size() > 0) {
       memberWeight = assessment.getWeight();
       }
@@ -406,7 +411,6 @@ public class Member extends Model {
       } else {
         return "red";
       }
-
   }
 
   /**
@@ -419,8 +423,6 @@ public class Member extends Model {
   {
     return (int)(num * 100) / 100.0;
   }
-
-
 
 
 }

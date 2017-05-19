@@ -58,10 +58,8 @@
         <input placeholder="00.00cm" type="text" name="hips">
       </div>
     </div>
-
     <button class="ui blue submit button">Add Assessment</button>
   </form>
-
 
   <table class="ui center aligned raised celled table segment">
     <thead>
@@ -77,12 +75,11 @@
       <th>Remove Assessment</th>
     </tr>
     </thead>
+
     <tbody>
     <div class="ui raised list">
       #{list items: assessmentlist, as:'assessment'} <!--supposed to get the stuff from EVERY assessment in a list order.-->
       <tr>
-
-
         <td> ${assessment.weight} </td>
         <td> ${assessment.chest} </td>
         <td> ${assessment.thigh} </td>
@@ -100,31 +97,7 @@
     </tbody>
   </table>
 
- <!-- <thead>
-     
-    <tr>
-    
-    <th><header class="ui header">
-    ${member.firstname} ${member.lastname}'s Todo List
-  </header></th>
-    <th></th>
-    
-    </tr>
-  </thead>
-  <tbody>
-  #{list items:todolist, as:'todo'}
-  <tr>
-  <td>
-  
-   ${todo.title}</td>
-   <td><a href="/dashboard/${member.id}/deletetodo/${todo.id}" 
-   class="ui tiny red button">Delete</a></td>
-  </tr>
-    #{/list}
-  </tbody>-->
-
 </section>
-
 
 
  <!--   #{mainpanel/}
