@@ -32,21 +32,11 @@
       <file leaf-file-name="Assessment.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/Assessment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2771">
-              <caret line="198" column="18" lean-forward="false" selection-start-line="198" selection-start-column="18" selection-end-line="198" selection-end-column="18" />
+            <state relative-caret-position="78">
+              <caret line="17" column="6" lean-forward="false" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dashboard.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/dashboard.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1717">
-              <caret line="101" column="0" lean-forward="false" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -147,6 +137,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -357,8 +349,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -586,8 +576,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="2" y="10" width="1364" height="726" extended-state="0" />
-    <editor active="false" />
+    <frame x="2" y="10" width="1364" height="726" extended-state="1" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -603,7 +593,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2900506" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30214724" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30674848" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -938,9 +928,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/about.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="2" lean-forward="false" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/dashboard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="101" column="0" lean-forward="false" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/Dashboard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1475">
+        <state relative-caret-position="200">
           <caret line="154" column="39" lean-forward="false" selection-start-line="154" selection-start-column="39" selection-end-line="154" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -948,26 +953,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/about.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="2" lean-forward="false" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/dashboard.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1717">
-          <caret line="101" column="0" lean-forward="false" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/Assessment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2771">
-          <caret line="198" column="18" lean-forward="false" selection-start-line="198" selection-start-column="18" selection-end-line="198" selection-end-column="18" />
+        <state relative-caret-position="78">
+          <caret line="17" column="6" lean-forward="false" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
