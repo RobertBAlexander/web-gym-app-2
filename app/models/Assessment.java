@@ -15,7 +15,7 @@ import java.util.List;
  */
 @Entity
 public class Assessment extends Model {
-    public Date date;
+    //public Date date;
     public double weight;
     public double chest;
     public double thigh;
@@ -29,7 +29,7 @@ public class Assessment extends Model {
     //public List<Assessment> assessmentlist = new ArrayList<Assessment>();
 
     public Assessment( double weight, double chest, double thigh, double upperArm, double waist, double hips) {
-        this.date = new Date();
+        //this.date = new Date();
         this.weight = weight;
         this.chest = chest;
         this.thigh = thigh;
@@ -196,7 +196,7 @@ public class Assessment extends Model {
     @Override
     public String toString() {
         return "Assessment{" +
-                "date=" + date +
+                //"date=" + date +
                 ", weight=" + weight +
                 ", chest=" + chest +
                 ", thigh=" + thigh +
