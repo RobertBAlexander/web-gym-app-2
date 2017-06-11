@@ -50,9 +50,9 @@ public class Assessment extends Model {
      * Updates the assessment date field. The Member's date, as measured during this assessment.
      *
      */
-    public void setDate() {
-        this.date = new Date();
-    }
+    //public void setDate() {
+    //    this.date = new Date();
+   // }
 
     /**
      * Updates the assessment weight field. The Member's weight, as measured during this assessment.
@@ -127,9 +127,9 @@ public class Assessment extends Model {
      *
      * @return the assessment date.
      */
-    public Date getDate() {
-        return date;
-    }
+    //public Date getDate() {
+    //    return date;
+    //}
 
     /**
      * Returns the Assessment weight.
@@ -196,7 +196,7 @@ public class Assessment extends Model {
     @Override
     public String toString() {
         return "Assessment{" +
-                "date=" + date +
+                //"date=" + date +
                 ", weight=" + weight +
                 ", chest=" + chest +
                 ", thigh=" + thigh +
