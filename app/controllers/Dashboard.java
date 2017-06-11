@@ -6,6 +6,8 @@ import models.Member;
 import models.Trainer;
 import play.Logger;
 import play.mvc.Controller;
+
+import java.util.Date;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -134,6 +136,7 @@ public class Dashboard extends Controller
     /**
      * As a member, add a new assessment to the end of your array list of assessments. Redirect to dashboard.html through
      * /dashboard, with updated info.
+     * @param date the new date of the member
      * @param weight the new weight of the member
      * @param chest the new chest measurement
      * @param thigh the new thigh measurement
@@ -141,15 +144,15 @@ public class Dashboard extends Controller
      * @param waist the new waist measurement
      * @param hips the new hips measurement
      */
-  public static void addAssessment(double weight, double chest, double thigh, double upperArm, double waist, double hips)
+  public static void addAssessment(Date date, double weight, double chest, double thigh, double upperArm, double waist, double hips)
   {
       Member member =Accounts.getLoggedInMember();
       List<Assessment> assessmentlist = member.assessmentlist;
-        Assessment assessment = new Assessment(weight, chest, thigh, upperArm, waist, hips);
+        Assessment assessment = new Assessment( date, weight, chest, thigh, upperArm, waist, hips);
         member.assessmentlist.add(assessment);
         member.save();
         assessment.save();
-        Logger.info("Adding Assessment" + "Assessment NUMBER OR DATE GOES HERE");
+        Logger.info("Adding Assessment created on: " + date);
         redirect("/dashboard");
   }
   

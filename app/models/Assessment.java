@@ -6,6 +6,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -13,6 +14,7 @@ import java.util.List;
  */
 @Entity
 public class Assessment extends Model {
+    public Date date;
     public double weight;
     public double chest;
     public double thigh;
@@ -25,7 +27,8 @@ public class Assessment extends Model {
     //@OneToMany(cascade = CascadeType.ALL)
     //public List<Assessment> assessmentlist = new ArrayList<Assessment>();
 
-    public Assessment(double weight, double chest, double thigh, double upperArm, double waist, double hips) {
+    public Assessment( Date date, double weight, double chest, double thigh, double upperArm, double waist, double hips) {
+        this.date = date;
         this.weight = weight;
         this.chest = chest;
         this.thigh = thigh;
@@ -40,6 +43,16 @@ public class Assessment extends Model {
 //********************************************************************************
     //  SETTERS
     //********************************************************************************
+
+
+    /**
+     * Updates the assessment date field. The Member's date, as measured during this assessment.
+     *
+     * @param date There is no validation on the assessment weight.
+     */
+    public void setDate(Date date) {
+        this.date = date;
+    }
 
     /**
      * Updates the assessment weight field. The Member's weight, as measured during this assessment.
@@ -110,6 +123,15 @@ public class Assessment extends Model {
     //********************************************************************************
 
     /**
+     * Returns the Assessment date.
+     *
+     * @return the assessment date.
+     */
+    public Date getDate() {
+        return date;
+    }
+
+    /**
      * Returns the Assessment weight.
      *
      * @return the assessment weight.
@@ -174,7 +196,8 @@ public class Assessment extends Model {
     @Override
     public String toString() {
         return "Assessment{" +
-                "weight=" + weight +
+                "date=" + date +
+                ", weight=" + weight +
                 ", chest=" + chest +
                 ", thigh=" + thigh +
                 ", upperArm=" + upperArm +
