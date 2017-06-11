@@ -152,7 +152,7 @@ public class Dashboard extends Controller
         member.assessmentlist.add(assessment);
         member.save();
         assessment.save();
-        Logger.info("Adding Assessment");
+        Logger.info("Adding Assessment" + assessment.getDate());
         redirect("/dashboard");
   }
   

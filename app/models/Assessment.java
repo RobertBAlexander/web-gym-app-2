@@ -14,7 +14,7 @@ import java.util.List;
  */
 @Entity
 public class Assessment extends Model {
-   // public Date date;
+    public Date date;
     public double weight;
     public double chest;
     public double thigh;
@@ -28,7 +28,7 @@ public class Assessment extends Model {
     //public List<Assessment> assessmentlist = new ArrayList<Assessment>();
 
     public Assessment( double weight, double chest, double thigh, double upperArm, double waist, double hips) {
-       // this.date = date;
+        this.date = new Date();
         this.weight = weight;
         this.chest = chest;
         this.thigh = thigh;
@@ -40,7 +40,7 @@ public class Assessment extends Model {
     }
 
 
-//********************************************************************************
+    //********************************************************************************
     //  SETTERS
     //********************************************************************************
 
@@ -48,11 +48,11 @@ public class Assessment extends Model {
     /**
      * Updates the assessment date field. The Member's date, as measured during this assessment.
      *
-     * @param date There is no validation on the assessment weight.
+     * @param date There is no validation on the assessment date.
      */
-    //public void setDate(Date date) {
-    //    this.date = date;
-    //}
+    public void setDate(Date date) {
+        this.date = new Date();
+    }
 
     /**
      * Updates the assessment weight field. The Member's weight, as measured during this assessment.
@@ -127,9 +127,9 @@ public class Assessment extends Model {
      *
      * @return the assessment date.
      */
-    //public Date getDate() {
-    //    return date;
-   // }
+    public Date getDate() {
+        return date;
+    }
 
     /**
      * Returns the Assessment weight.
@@ -196,7 +196,7 @@ public class Assessment extends Model {
     @Override
     public String toString() {
         return "Assessment{" +
-                //"date=" + date +
+                "date=" + date +
                 ", weight=" + weight +
                 ", chest=" + chest +
                 ", thigh=" + thigh +
