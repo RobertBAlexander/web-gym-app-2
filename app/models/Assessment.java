@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.Date;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 /**
@@ -27,7 +28,7 @@ public class Assessment extends Model {
     //@OneToMany(cascade = CascadeType.ALL)
     //public List<Assessment> assessmentlist = new ArrayList<Assessment>();
 
-    public Assessment( Date date, double weight, double chest, double thigh, double upperArm, double waist, double hips) {
+    public Assessment( double weight, double chest, double thigh, double upperArm, double waist, double hips) {
         this.date = new Date();
         this.weight = weight;
         this.chest = chest;
@@ -48,11 +49,10 @@ public class Assessment extends Model {
     /**
      * Updates the assessment date field. The Member's date, as measured during this assessment.
      *
-     * @param date There is no validation on the assessment date.
      */
-    //public void setDate(Date date) {
-     //   this.date = new Date();
-    //}
+    public void setDate() {
+        this.date = new Date();
+    }
 
     /**
      * Updates the assessment weight field. The Member's weight, as measured during this assessment.
