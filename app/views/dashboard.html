@@ -64,6 +64,7 @@
   <table class="ui center aligned raised celled table segment">
     <thead>
     <tr>
+      <th>Date</th>
       <th>Weight</th>
       <th>Chest</th>
       <th>Thigh</th>
@@ -78,8 +79,9 @@
 
     <tbody>
     <div class="ui raised list">
-      #{list items: assessmentlist, as:'assessment'} <!--supposed to get the stuff from EVERY assessment in a list order.-->
+      #{list items: member.dateOrderAssess(), as:'assessment'} <!--supposed to get the stuff from EVERY assessment in a list order.-->
       <tr>
+        <td> ${assessment.date} </td>
         <td> ${assessment.weight} </td>
         <td> ${assessment.chest} </td>
         <td> ${assessment.thigh} </td>

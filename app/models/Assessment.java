@@ -15,7 +15,7 @@ import java.util.List;
  */
 @Entity
 public class Assessment extends Model {
-    //public Date date;
+    public Date date;
     public double weight;
     public double chest;
     public double thigh;
@@ -29,7 +29,7 @@ public class Assessment extends Model {
     //public List<Assessment> assessmentlist = new ArrayList<Assessment>();
 
     public Assessment( double weight, double chest, double thigh, double upperArm, double waist, double hips) {
-        //this.date = new Date();
+        this.date = new Date();
         this.weight = weight;
         this.chest = chest;
         this.thigh = thigh;
@@ -50,9 +50,9 @@ public class Assessment extends Model {
      * Updates the assessment date field. The Member's date, as measured during this assessment.
      *
      */
-    //public void setDate() {
-    //    this.date = new Date();
-   // }
+    public void setDate() {
+        this.date = new Date();
+    }
 
     /**
      * Updates the assessment weight field. The Member's weight, as measured during this assessment.
@@ -127,9 +127,9 @@ public class Assessment extends Model {
      *
      * @return the assessment date.
      */
-    //public Date getDate() {
-    //    return date;
-    //}
+    public Date getDate() {
+        return date;
+    }
 
     /**
      * Returns the Assessment weight.

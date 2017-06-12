@@ -5,9 +5,7 @@ import play.db.jpa.Model;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import java.lang.Math;
 
 /**
@@ -124,6 +122,26 @@ public class Member extends Model {
    // {
    //   return "nochange.jpg";
    // }
+  }
+
+  public List<Assessment> dateOrderAssess()
+  {
+    List<Assessment> assessList = this.assessmentlist;
+    Collections.sort(assessList, new Comparator<Assessment>()
+    {
+      public int compare(Assessment a1, Assessment a2)
+      {
+        if (a1.getDate() == null || a2.getDate() == null)
+          return 0;
+        else
+        {
+          return a2.getDate().compareTo(a1.getDate());
+        }
+
+      }
+
+    });
+    return assessList;
   }
 
   //********************************************************************************
